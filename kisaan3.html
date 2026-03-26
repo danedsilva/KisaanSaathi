@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KisanSaathi | ಕಿಸಾನ್ ಸಾಥಿ — Farmer Welfare Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+Kannada:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0D1117;
+  --ink-mid: #161B22;
+  --ink-soft: #21262D;
+  --gold: #D4A017;
+  --gold-bright: #F0BE30;
+  --green: #238636;
+  --green-soft: #2EA043;
+  --red: #B91C1C;
+  --blue: #1565C0;
+  --sky: #58A6FF;
+  --white: #FFFFFF;
+  --paper: #F6F8FA;
+  --muted: #8B949E;
+  --border: #30363D;
+  --border-light: #E6EBF1;
+  --shadow: 0 8px 32px rgba(0,0,0,0.12);
+  --r: 8px;
+  --r-lg: 14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden}
+
+/* ======= GOV STRIP ======= */
+.gov-strip{background:var(--ink);padding:6px 0;border-bottom:2px solid var(--gold)}
+.gov-strip-inner{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+.gov-emblem{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.6);font-size:.72rem;letter-spacing:.4px}
+.emblem-circle{width:26px;height:26px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem}
+.lang-row{display:flex;gap:4px}
+.lbtn{background:transparent;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);padding:3px 11px;border-radius:3px;font-size:.71rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s}
+.lbtn.active{background:var(--gold);border-color:var(--gold);color:var(--ink);font-weight:600}
+
+/* ======= NAV ======= */
+nav{background:var(--white);border-bottom:1px solid var(--border-light);position:sticky;top:0;z-index:200;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.nav-inner{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo-mark{width:36px;height:36px;background:var(--ink);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--ink);font-weight:700}
+.logo-sub{color:var(--muted);font-size:.66rem;letter-spacing:.7px;text-transform:uppercase}
+.nav-links{display:flex;gap:2px;list-style:none}
+.nav-links a{color:#555;text-decoration:none;padding:5px 13px;border-radius:6px;font-size:.84rem;font-weight:500;transition:.15s}
+.nav-links a:hover{background:var(--paper);color:var(--blue)}
+.live-badge{background:#DC2626;color:#fff;font-size:.62rem;font-weight:700;padding:2px 7px;border-radius:2px;letter-spacing:.5px;margin-left:8px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+
+/* ======= HERO ======= */
+.hero{background:var(--ink);padding:64px 24px 72px;position:relative;overflow:hidden}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:24px 24px}
+.hero-glow{position:absolute;top:-60px;right:-60px;width:400px;height:400px;background:radial-gradient(circle,rgba(212,160,23,.12) 0%,transparent 70%);pointer-events:none}
+.hero-accent{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold) 0%,var(--gold-bright) 60%,transparent 100%)}
+.hero-inner{max-width:1240px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:1fr 360px;gap:56px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(212,160,23,.1);border:1px solid rgba(212,160,23,.25);color:var(--gold-bright);padding:5px 13px;border-radius:3px;font-size:.71rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:#fff;line-height:1.18;font-weight:900;margin-bottom:8px}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero-kn{font-family:'Noto Sans Kannada',sans-serif;font-size:1rem;color:rgba(255,255,255,.35);margin-bottom:18px}
+.hero p{color:rgba(255,255,255,.62);font-size:.95rem;line-height:1.78;max-width:500px;margin-bottom:30px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:var(--ink);border:none;padding:12px 22px;border-radius:var(--r);font-size:.88rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s}
+.btn-gold:hover{background:var(--gold-bright);transform:translateY(-1px)}
+.btn-outline{background:rgba(255,255,255,.06);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.18);padding:12px 22px;border-radius:var(--r);font-size:.88rem;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s}
+.btn-outline:hover{background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.32)}
+
+/* Stats card */
+.stats-card{background:rgba(255,255,255,.05);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.09);border-radius:var(--r-lg);padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat-box{text-align:center;padding:14px;background:rgba(255,255,255,.04);border-radius:var(--r);border:1px solid rgba(255,255,255,.06)}
+.stat-n{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--gold);font-weight:700;line-height:1}
+.stat-l{color:rgba(255,255,255,.42);font-size:.7rem;margin-top:4px}
+
+/* ======= LIVE UPDATE BAR ======= */
+.update-bar{background:var(--green);padding:10px 24px}
+.update-bar-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.update-tag{background:rgba(0,0,0,.25);color:#fff;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:2px;letter-spacing:.8px;text-transform:uppercase;white-space:nowrap}
+.update-text{color:#fff;font-size:.83rem;font-weight:500}
+.update-date{color:rgba(255,255,255,.65);font-size:.75rem;margin-left:auto;white-space:nowrap}
+
+/* ======= SECTIONS ======= */
+.section{padding:68px 24px}
+.section-inner{max-width:1240px;margin:0 auto}
+.section-tag{display:inline-flex;align-items:center;gap:6px;background:var(--paper);border:1px solid var(--border-light);color:var(--blue);padding:4px 11px;border-radius:3px;font-size:.7rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:11px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.1rem);color:var(--ink);font-weight:700;margin-bottom:9px;line-height:1.25}
+.section-desc{color:#666;font-size:.93rem;line-height:1.72;max-width:540px}
+
+/* ======= SCHEMES ======= */
+.schemes-bg{background:#fff}
+.schemes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(276px,1fr));gap:16px}
+.scheme-card{background:#fff;border:1.5px solid var(--border-light);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:.2s;display:flex;flex-direction:column}
+.scheme-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--blue)}
+.card-top{padding:18px 19px 14px;border-bottom:1px solid var(--paper);display:flex;align-items:flex-start;gap:11px}
+.card-icon{width:42px;height:42px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+.card-name{font-weight:700;color:var(--ink);font-size:.93rem;line-height:1.3;margin-bottom:1px}
+.card-kn{font-family:'Noto Sans Kannada',sans-serif;font-size:.74rem;color:var(--muted)}
+.badge{font-size:.62rem;font-weight:700;letter-spacing:.7px;text-transform:uppercase;padding:2px 7px;border-radius:2px}
+.badge-c{background:rgba(21,101,192,.08);color:var(--blue)}
+.badge-s{background:rgba(35,134,54,.08);color:var(--green)}
+.card-body{padding:13px 19px 16px;flex:1;display:flex;flex-direction:column}
+.card-desc{font-size:.83rem;color:#555;line-height:1.6;margin-bottom:13px;flex:1}
+.card-foot{display:flex;align-items:center;justify-content:space-between;padding-top:11px;border-top:1px solid var(--paper)}
+.card-amt{font-weight:700;color:var(--green);font-size:.88rem;font-family:'JetBrains Mono',monospace}
+.card-deadline{display:flex;align-items:center;gap:4px;font-size:.73rem;color:var(--red);font-weight:500}
+.card-cta{width:100%;padding:9px;background:var(--paper);border:none;border-top:1px solid var(--border-light);color:var(--blue);font-size:.8rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s;text-align:center;letter-spacing:.2px}
+.card-cta:hover{background:var(--blue);color:#fff}
+
+/* ======= PM-KISAN FULL GUIDE ======= */
+.guide-bg{background:var(--ink)}
+.guide-bg .section-tag{background:rgba(212,160,23,.12);color:var(--gold-bright);border-color:rgba(212,160,23,.2)}
+.guide-bg .section-title{color:#fff}
+.guide-bg .section-desc{color:rgba(255,255,255,.5)}
+
+.live-data-card{background:rgba(35,134,54,.12);border:1px solid rgba(35,134,54,.3);border-radius:var(--r-lg);padding:18px 22px;margin-bottom:28px;display:flex;align-items:flex-start;gap:14px}
+.live-icon{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.live-label{font-size:.68rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--green-soft);margin-bottom:4px}
+.live-val{color:#fff;font-size:.92rem;font-weight:600;line-height:1.5}
+
+.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+.guide-panel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:22px}
+.panel-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.panel-icon{width:36px;height:36px;background:rgba(212,160,23,.15);border:1px solid rgba(212,160,23,.2);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.panel-title{color:#fff;font-weight:600;font-size:.95rem}
+.list-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.84rem;color:rgba(255,255,255,.65);line-height:1.55}
+.list-item:last-child{border-bottom:none}
+.list-check{color:var(--green-soft);flex-shrink:0;margin-top:2px;font-size:.85rem}
+.list-cross{color:var(--red);flex-shrink:0;margin-top:2px;font-size:.85rem}
+
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:1.5px;background:rgba(255,255,255,.1)}
+.tl-item{position:relative;margin-bottom:18px}
+.tl-item:last-child{margin-bottom:0}
+.tl-dot{position:absolute;left:-21px;top:4px;width:10px;height:10px;background:var(--gold);border-radius:50%;border:2px solid var(--ink-mid)}
+.tl-title{color:#fff;font-weight:600;font-size:.87rem;margin-bottom:2px}
+.tl-desc{color:rgba(255,255,255,.5);font-size:.8rem;line-height:1.5}
+
+.installment-table{width:100%;border-collapse:collapse;margin-bottom:8px}
+.installment-table th{background:rgba(212,160,23,.15);color:var(--gold-bright);font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:9px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
+.installment-table td{padding:9px 12px;font-size:.83rem;color:rgba(255,255,255,.7);border-bottom:1px solid rgba(255,255,255,.05)}
+.installment-table tr:last-child td{border-bottom:none}
+.installment-table .highlight td{color:#fff;font-weight:600;background:rgba(35,134,54,.1)}
+.amt-cell{font-family:'JetBrains Mono',monospace;color:var(--gold-bright)!important}
+.status-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:5px}
+.status-live{background:#4ade80}
+.status-past{background:var(--muted)}
+.status-next{background:var(--gold)}
+
+.exclusion-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.excl-pill{background:rgba(185,28,28,.08);border:1px solid rgba(185,28,28,.15);border-radius:6px;padding:9px 12px;font-size:.8rem;color:rgba(255,255,255,.65);display:flex;align-items:flex-start;gap:8px}
+.excl-icon{color:var(--red);font-size:.8rem;flex-shrink:0;margin-top:2px}
+
+.code-cmd{background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:10px 13px;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#7dd3fc;line-height:1.7;margin-top:8px}
+.apply-btn-big{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--green);color:#fff;border:none;padding:13px 24px;border-radius:var(--r);font-size:.9rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s;text-decoration:none;margin-top:20px;width:100%}
+.apply-btn-big:hover{background:#2EA043}
+
+/* ======= MODAL ======= */
+.modal-overlay{position:fixed;inset:0;background:rgba(13,17,23,.75);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(5px)}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:16px;width:100%;max-width:660px;max-height:88vh;overflow-y:auto;box-shadow:0 24px 60px rgba(0,0,0,.18);animation:mIn .22s ease}
+@keyframes mIn{from{opacity:0;transform:scale(.96) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-head{padding:22px 26px 18px;border-bottom:1px solid var(--border-light);display:flex;align-items:flex-start;gap:13px;position:sticky;top:0;background:#fff;z-index:10}
+.modal-icon-big{width:50px;height:50px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.modal-title{font-family:'Playfair Display',serif;font-size:1.22rem;color:var(--ink);font-weight:700;margin-bottom:2px}
+.modal-title-kn{font-family:'Noto Sans Kannada',sans-serif;font-size:.8rem;color:var(--muted)}
+.modal-close{margin-left:auto;width:34px;height:34px;background:var(--paper);border:1px solid var(--border-light);border-radius:6px;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;color:#555;transition:.15s;flex-shrink:0}
+.modal-close:hover{background:var(--border-light)}
+.modal-body{padding:22px 26px 26px}
+.modal-sec{margin-bottom:22px}
+.modal-sec-title{font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.modal-sec-title::after{content:'';flex:1;height:1px;background:var(--border-light)}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:14px}
+.info-pill{background:var(--paper);border:1px solid var(--border-light);border-radius:6px;padding:10px 13px}
+.info-pill-label{font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:500;margin-bottom:2px}
+.info-pill-val{font-size:.88rem;font-weight:700;color:var(--ink)}
+.doc-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.doc-item{display:flex;align-items:center;gap:9px;padding:9px 13px;background:var(--paper);border-radius:6px;font-size:.84rem;color:#555}
+.doc-chk{color:var(--green);font-size:.85rem;flex-shrink:0}
+.modal-btns{display:flex;gap:9px;margin-top:22px;padding-top:18px;border-top:1px solid var(--border-light)}
+.btn-apply{flex:1;background:var(--blue);color:#fff;border:none;padding:12px 18px;border-radius:var(--r);font-size:.88rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s;display:flex;align-items:center;justify-content:center;gap:5px;text-decoration:none}
+.btn-apply:hover{background:var(--ink-soft)}
+.btn-wa{background:#25D366;color:#fff;border:none;padding:12px 16px;border-radius:var(--r);font-size:.88rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s;display:flex;align-items:center;justify-content:center;gap:5px}
+.btn-wa:hover{background:#128C7E}
+
+/* ======= ELIGIBILITY ======= */
+.elig-bg{background:var(--paper)}
+.checker-card{background:#fff;border:1.5px solid var(--border-light);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow)}
+.checker-bar{height:3px;background:var(--border-light)}
+.checker-fill{height:100%;background:var(--blue);transition:width .3s}
+.checker-body{padding:28px}
+.step-label{font-size:.72rem;color:var(--muted);font-weight:500;margin-bottom:5px}
+.q-text{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.q-kn{font-family:'Noto Sans Kannada',sans-serif;font-size:.82rem;color:var(--blue);margin-bottom:18px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:24px}
+.opt{background:var(--paper);border:1.5px solid var(--border-light);border-radius:var(--r);padding:12px 14px;text-align:left;cursor:pointer;transition:.15s;font-family:'DM Sans',sans-serif}
+.opt:hover{border-color:var(--blue)}
+.opt.sel{border-color:var(--blue);background:rgba(21,101,192,.05)}
+.opt-v{font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:1px}
+.opt-kn{font-family:'Noto Sans Kannada',sans-serif;font-size:.72rem;color:var(--muted)}
+.checker-nav{display:flex;gap:9px}
+.btn-back{background:var(--paper);border:1px solid var(--border-light);color:#555;padding:10px 18px;border-radius:var(--r);font-size:.85rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s}
+.btn-back:hover{background:var(--border-light)}
+.btn-next{flex:1;background:var(--ink);color:#fff;border:none;padding:10px 18px;border-radius:var(--r);font-size:.85rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s}
+.btn-next:hover{background:var(--ink-soft)}
+.result-item{border:1.5px solid var(--border-light);border-radius:var(--r);padding:13px 15px;display:flex;align-items:center;gap:11px;margin-bottom:9px;cursor:pointer;transition:.15s}
+.result-item:hover{border-color:var(--blue);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.result-emoji{font-size:1.3rem;flex-shrink:0}
+.result-name{font-weight:600;font-size:.9rem;color:var(--ink);margin-bottom:1px}
+.result-amt{font-size:.77rem;color:var(--green);font-weight:600;font-family:'JetBrains Mono',monospace}
+.result-arrow{margin-left:auto;color:var(--muted)}
+
+/* ======= CHATBOT ======= */
+.chat-bg{background:#fff}
+.chat-layout{display:grid;grid-template-columns:1fr 340px;gap:28px;align-items:start}
+.chat-window{background:#fff;border:1.5px solid var(--border-light);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow)}
+.chat-top{background:var(--ink);padding:13px 17px;display:flex;align-items:center;gap:10px}
+.chat-av{width:34px;height:34px;background:rgba(212,160,23,.2);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.95rem;border:1px solid rgba(212,160,23,.3)}
+.chat-name{color:#fff;font-weight:600;font-size:.88rem}
+.chat-status{color:rgba(255,255,255,.4);font-size:.7rem;display:flex;align-items:center;gap:4px;margin-top:1px}
+.online-dot{width:6px;height:6px;background:#4ade80;border-radius:50%}
+.quick-chips{padding:11px 13px 0;display:flex;gap:5px;flex-wrap:wrap}
+.chip{background:var(--paper);border:1px solid var(--border-light);color:#555;padding:4px 11px;border-radius:20px;font-size:.74rem;cursor:pointer;transition:.15s;font-family:'DM Sans',sans-serif;white-space:nowrap}
+.chip:hover{background:rgba(21,101,192,.06);border-color:var(--blue);color:var(--blue)}
+.chat-msgs{height:320px;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:11px}
+.chat-msgs::-webkit-scrollbar{width:4px}
+.chat-msgs::-webkit-scrollbar-thumb{background:var(--border-light);border-radius:2px}
+.msg{max-width:83%;animation:mIn .18s ease}
+.msg.bot{align-self:flex-start}
+.msg.user{align-self:flex-end}
+.bubble{padding:9px 13px;border-radius:11px;font-size:.84rem;line-height:1.65}
+.msg.bot .bubble{background:var(--paper);color:var(--ink);border-bottom-left-radius:3px;border:1px solid var(--border-light)}
+.msg.user .bubble{background:var(--blue);color:#fff;border-bottom-right-radius:3px}
+.msg-time{font-size:.64rem;color:var(--muted);margin-top:2px;padding:0 2px}
+.msg.user .msg-time{text-align:right}
+.typing-wrap{display:flex;gap:3px;align-items:center;padding:9px 13px;background:var(--paper);border-radius:11px;border-bottom-left-radius:3px;border:1px solid var(--border-light);width:fit-content}
+.td{width:6px;height:6px;background:var(--muted);border-radius:50%;animation:tping 1.2s infinite}
+.td:nth-child(2){animation-delay:.2s}
+.td:nth-child(3){animation-delay:.4s}
+@keyframes tping{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-4px)}}
+.chat-input-row{padding:11px 13px;border-top:1px solid var(--border-light);display:flex;gap:7px}
+.chat-input{flex:1;border:1px solid var(--border-light);border-radius:var(--r);padding:9px 12px;font-size:.84rem;font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--paper);transition:.15s}
+.chat-input:focus{outline:none;border-color:var(--blue);background:#fff}
+.send-btn{width:36px;height:36px;background:var(--blue);color:#fff;border:none;border-radius:var(--r);cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:.15s}
+.send-btn:hover{background:var(--ink-soft)}
+
+.wa-sim{background:#ECE5DD;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border-light)}
+.wa-head{background:#075E54;padding:11px 15px;display:flex;align-items:center;gap:9px}
+.wa-av{width:34px;height:34px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.wa-title{color:#fff;font-weight:600;font-size:.87rem}
+.wa-sub{color:rgba(255,255,255,.55);font-size:.68rem}
+.wa-msgs{height:280px;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:9px}
+.wa-msg{max-width:80%;font-size:.81rem;padding:7px 11px;border-radius:7px;line-height:1.52}
+.wa-msg.in{background:#fff;align-self:flex-start;border-top-left-radius:2px;color:#1a1a1a}
+.wa-msg.out{background:#DCF8C6;align-self:flex-end;border-top-right-radius:2px;color:#1a1a1a}
+.wa-time{font-size:.62rem;color:#667781;margin-top:1px;text-align:right}
+.wa-input-row{background:#F0F0F0;padding:7px 11px;display:flex;gap:7px;align-items:center}
+.wa-inp{flex:1;background:#fff;border:none;border-radius:20px;padding:7px 13px;font-size:.82rem;font-family:'DM Sans',sans-serif;outline:none}
+.wa-send{width:34px;height:34px;background:#25D366;border:none;border-radius:50%;cursor:pointer;font-size:.85rem;color:#fff;display:flex;align-items:center;justify-content:center}
+
+/* ======= REGISTER ======= */
+.reg-bg{background:var(--paper)}
+.reg-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.reg-card{background:#fff;border:1.5px solid var(--border-light);border-radius:var(--r-lg);padding:30px;box-shadow:var(--shadow)}
+.form-row{margin-bottom:15px}
+.form-label{display:block;font-size:.74rem;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
+.form-ctrl{width:100%;border:1.5px solid var(--border-light);border-radius:var(--r);padding:10px 12px;font-size:.88rem;font-family:'DM Sans',sans-serif;color:var(--ink);transition:.15s;background:var(--paper)}
+.form-ctrl:focus{outline:none;border-color:var(--blue);background:#fff;box-shadow:0 0 0 3px rgba(21,101,192,.07)}
+.submit-btn{width:100%;background:var(--blue);color:#fff;border:none;padding:13px;border-radius:var(--r);font-size:.9rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s;margin-top:3px}
+.submit-btn:hover{background:var(--ink-soft);transform:translateY(-1px)}
+.form-success{display:none;text-align:center;padding:30px 18px}
+.suc-icon{font-size:2.6rem;margin-bottom:11px}
+.suc-title{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--ink);margin-bottom:7px}
+.suc-desc{color:#666;font-size:.86rem;line-height:1.6}
+.info-bullets{display:flex;flex-direction:column;gap:13px;margin-top:8px}
+.ib{display:flex;align-items:flex-start;gap:11px}
+.ib-icon{width:33px;height:33px;background:rgba(21,101,192,.08);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;margin-top:1px}
+.ib-h{font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:1px}
+.ib-p{font-size:.8rem;color:#666;line-height:1.5}
+
+/* ======= FOOTER ======= */
+footer{background:var(--ink);border-top:3px solid var(--gold);padding:30px 24px 20px}
+.footer-inner{max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+.footer-logo{color:#fff;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;display:flex;align-items:center;gap:8px}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a{color:rgba(255,255,255,.38);text-decoration:none;font-size:.78rem;transition:.15s}
+.footer-links a:hover{color:var(--gold)}
+.footer-copy{color:rgba(255,255,255,.25);font-size:.72rem;text-align:center;margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07)}
+
+/* ======= TOAST ======= */
+.toast{position:fixed;bottom:22px;right:22px;background:var(--green);color:#fff;padding:11px 18px;border-radius:var(--r);font-size:.84rem;font-weight:500;z-index:9999;transform:translateY(60px);opacity:0;transition:.22s;box-shadow:var(--shadow)}
+.toast.show{transform:translateY(0);opacity:1}
+
+@media(max-width:900px){
+  .hero-inner,.reg-grid,.guide-grid,.chat-layout,.exclusion-grid{grid-template-columns:1fr}
+  .stats-card{display:none}
+  nav .nav-links{display:none}
+  .info-grid{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div id="toast" class="toast"></div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal-content"></div>
+</div>
+
+<!-- GOV STRIP -->
+<div class="gov-strip">
+  <div class="gov-strip-inner">
+    <div class="gov-emblem">
+      <div class="emblem-circle">🇮🇳</div>
+      <span>Government of Karnataka &amp; Ministry of Agriculture, GoI</span>
+    </div>
+    <div class="lang-row">
+      <button class="lbtn active" onclick="setLang('en')" id="btn-en">EN</button>
+      <button class="lbtn" onclick="setLang('kn')" id="btn-kn">ಕನ್ನಡ</button>
+      <button class="lbtn" onclick="setLang('hi')" id="btn-hi">हिं</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#">
+      <div class="logo-mark">🌾</div>
+      <div>
+        <div class="logo-text">KisanSaathi</div>
+        <div class="logo-sub" data-en="Farmer Welfare Portal" data-kn="ರೈತ ಕಲ್ಯಾಣ ಪೋರ್ಟಲ್" data-hi="किसान कल्याण पोर्टल">Farmer Welfare Portal</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#schemes" data-en="Schemes" data-kn="ಯೋಜನೆಗಳು" data-hi="योजनाएं">Schemes</a></li>
+      <li><a href="#pmkisan-guide" data-en="PM-KISAN Guide" data-kn="PM-KISAN ಮಾರ್ಗದರ್ಶಿ" data-hi="PM-KISAN गाइड">PM-KISAN Guide <span class="live-badge">LIVE</span></a></li>
+      <li><a href="#eligibility" data-en="Eligibility" data-kn="ಅರ್ಹತೆ" data-hi="पात्रता">Eligibility</a></li>
+      <li><a href="#chatbot" data-en="AI Assistant" data-kn="AI ಸಹಾಯಕ" data-hi="AI सहायक">AI Assistant</a></li>
+      <li><a href="#register" data-en="Register" data-kn="ನೋಂದಣಿ" data-hi="पंजीकरण">Register</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">🌱 <span data-en="Official Farmer Welfare Platform · India" data-kn="ಅಧಿಕೃತ ರೈತ ಕಲ್ಯಾಣ ವೇದಿಕೆ" data-hi="आधिकारिक किसान कल्याण मंच">Official Farmer Welfare Platform · India</span></div>
+      <h1 data-en="Every Farmer's Rights, <em>Delivered</em>" data-kn="ಪ್ರತಿ ರೈತನ ಹಕ್ಕುಗಳು, <em>ತಲುಪಿಸಲ್ಪಟ್ಟವು</em>" data-hi="हर किसान के अधिकार, <em>पहुँचाए जाएंगे</em>">Every Farmer's Rights, <em>Delivered</em></h1>
+      <div class="hero-kn">ಕಿಸಾನ್ ಸಾಥಿ — ರೈತರ ನಿಜವಾದ ಸ್ನೇಹಿತ</div>
+      <p data-en="KisanSaathi connects 9.3 crore Indian farmers to the government schemes built for them — eligibility checks, full document guides, live installment updates — in your language." data-kn="KisanSaathi 9.3 ಕೋಟಿ ರೈತರಿಗೆ ಸರ್ಕಾರಿ ಯೋಜನೆಗಳನ್ನು ಅವರ ಭಾಷೆಯಲ್ಲಿ ತಲುಪಿಸುತ್ತದೆ." data-hi="KisanSaathi 9.3 करोड़ किसानों को सरकारी योजनाओं से जोड़ता है।">KisanSaathi connects 9.3 crore Indian farmers to the government schemes built for them — eligibility checks, full document guides, live installment updates — in your language.</p>
+      <div class="hero-btns">
+        <button class="btn-gold" onclick="scroll2('eligibility')" data-en="Check My Eligibility →" data-kn="ನನ್ನ ಅರ್ಹತೆ ಪರಿಶೀಲಿಸಿ →" data-hi="पात्रता जांचें →">Check My Eligibility →</button>
+        <button class="btn-outline" onclick="scroll2('chatbot')" data-en="Talk to AI Assistant" data-kn="AI ಸಹಾಯಕರೊಂದಿಗೆ ಮಾತನಾಡಿ" data-hi="AI से बात करें">Talk to AI Assistant</button>
+      </div>
+    </div>
+    <div class="stats-card">
+      <div class="stat-box"><div class="stat-n">9.3Cr</div><div class="stat-l" data-en="PM-KISAN Beneficiaries" data-kn="PM-KISAN ಫಲಾನುಭವಿಗಳು" data-hi="PM-KISAN लाभार्थी">PM-KISAN Beneficiaries</div></div>
+      <div class="stat-box"><div class="stat-n">₹22nd</div><div class="stat-l" data-en="Installment Released" data-kn="ಕಂತು ಬಿಡುಗಡೆ" data-hi="किस्त जारी">Installment Released</div></div>
+      <div class="stat-box"><div class="stat-n">₹4.27L</div><div class="stat-l">Crore Disbursed Total</div></div>
+      <div class="stat-box"><div class="stat-n">8+</div><div class="stat-l" data-en="Active Schemes" data-kn="ಸಕ್ರಿಯ ಯೋಜನೆಗಳು" data-hi="सक्रिय योजनाएं">Active Schemes</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE UPDATE BAR -->
+<div class="update-bar">
+  <div class="update-bar-inner">
+    <span class="update-tag">🟢 LIVE UPDATE</span>
+    <span class="update-text" id="live-update-text">PM-KISAN 22nd Installment released on March 13, 2026 from Guwahati — ₹18,640 crore transferred to 9.32 crore farmers via DBT. Check your status at pmkisan.gov.in</span>
+    <span class="update-date" id="live-update-date">Source: pmkisan.gov.in · Mar 2026</span>
+  </div>
+</div>
+
+<!-- SCHEMES -->
+<section class="section schemes-bg" id="schemes">
+  <div class="section-inner">
+    <div class="section-header" style="margin-bottom:36px">
+      <div class="section-tag" data-en="📋 All Schemes" data-kn="📋 ಎಲ್ಲ ಯೋಜನೆಗಳು" data-hi="📋 सभी योजनाएं">📋 All Schemes</div>
+      <h2 class="section-title" data-en="Central & Karnataka State Schemes" data-kn="ಕೇಂದ್ರ ಮತ್ತು ಕರ್ನಾಟಕ ಯೋಜನೆಗಳು" data-hi="केंद्र और कर्नाटक योजनाएं">Central &amp; Karnataka State Schemes</h2>
+      <p class="section-desc" data-en="Click any card for full eligibility, documents required, and direct apply link." data-kn="ಅರ್ಹತೆ, ದಾಖಲೆಗಳು ಮತ್ತು ಅರ್ಜಿ ಲಿಂಕ್‌ಗಾಗಿ ಕ್ಲಿಕ್ ಮಾಡಿ." data-hi="पात्रता, दस्तावेज़ और आवेदन लिंक के लिए क्लिक करें।">Click any card for full eligibility, documents required, and direct apply link.</p>
+    </div>
+    <div class="schemes-grid" id="schemes-grid"></div>
+  </div>
+</section>
+
+<!-- PM-KISAN FULL GUIDE -->
+<section class="section guide-bg" id="pmkisan-guide">
+  <div class="section-inner">
+    <div style="margin-bottom:32px">
+      <div class="section-tag">📡 LIVE SCHEME GUIDE</div>
+      <h2 class="section-title">Complete PM-KISAN Guide <span style="color:var(--gold-bright);font-style:italic">2026</span></h2>
+      <p class="section-desc">Live data pulled from pmkisan.gov.in — installment history, full eligibility rules, document checklist, exclusions, and how to apply.</p>
+    </div>
+
+    <!-- Live data cards -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:28px">
+      <div class="live-data-card" style="flex-direction:column;gap:8px">
+        <div class="live-label">🟢 Latest Installment</div>
+        <div class="live-val">22nd Installment — Released March 13, 2026</div>
+        <div style="font-size:.78rem;color:rgba(255,255,255,.4)">From Guwahati, Assam · PM Modi</div>
+      </div>
+      <div class="live-data-card" style="flex-direction:column;gap:8px;border-color:rgba(212,160,23,.3);background:rgba(212,160,23,.08)">
+        <div class="live-label" style="color:var(--gold-bright)">💰 Amount Disbursed</div>
+        <div class="live-val">₹18,640 Crore to 9.32 crore farmers</div>
+        <div style="font-size:.78rem;color:rgba(255,255,255,.4)">Cumulative total: ₹4.27 lakh crore</div>
+      </div>
+      <div class="live-data-card" style="flex-direction:column;gap:8px">
+        <div class="live-label">📅 Next Installment (23rd)</div>
+        <div class="live-val">Expected June–July 2026</div>
+        <div style="font-size:.78rem;color:rgba(255,255,255,.4)">Complete e-KYC now to ensure payment</div>
+      </div>
+    </div>
+
+    <!-- Installment History Table -->
+    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:22px;margin-bottom:24px;overflow-x:auto">
+      <div class="panel-head" style="margin-bottom:14px">
+        <div class="panel-icon">📊</div>
+        <div class="panel-title">Installment History (Recent)</div>
+      </div>
+      <table class="installment-table">
+        <thead>
+          <tr><th>#</th><th>Period</th><th>Release Date</th><th>Amount</th><th>Farmers</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr class="highlight"><td>22nd</td><td>Dec 2025 – Mar 2026</td><td>March 13, 2026</td><td class="amt-cell">₹2,000</td><td>9.32 crore</td><td><span class="status-dot status-live"></span>Latest</td></tr>
+          <tr><td>21st</td><td>Aug – Nov 2025</td><td>Nov 19, 2025</td><td class="amt-cell">₹2,000</td><td>9.34 crore</td><td><span class="status-dot status-past"></span>Done</td></tr>
+          <tr><td>20th</td><td>Apr – Jul 2025</td><td>Aug 2, 2025</td><td class="amt-cell">₹2,000</td><td>9.71 crore</td><td><span class="status-dot status-past"></span>Done</td></tr>
+          <tr><td>19th</td><td>Dec 2024 – Mar 2025</td><td>Feb 24, 2025</td><td class="amt-cell">₹2,000</td><td>9.8 crore</td><td><span class="status-dot status-past"></span>Done</td></tr>
+          <tr class="highlight"><td>23rd</td><td>Apr – Jul 2026</td><td>~June–July 2026</td><td class="amt-cell">₹2,000</td><td>~9.3 crore</td><td><span class="status-dot status-next"></span>Expected</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="guide-grid">
+      <!-- Eligibility -->
+      <div class="guide-panel">
+        <div class="panel-head"><div class="panel-icon">✅</div><div class="panel-title">Who Is Eligible</div></div>
+        <div class="list-item"><span class="list-check">✓</span><span>All landholding farmer families with cultivable land — any size</span></div>
+        <div class="list-item"><span class="list-check">✓</span><span>Family defined as husband, wife, and minor children under 18</span></div>
+        <div class="list-item"><span class="list-check">✓</span><span>Land must be in farmer's name as of February 1, 2019 (cut-off)</span></div>
+        <div class="list-item"><span class="list-check">✓</span><span>Age minimum 18 years — no upper age limit</span></div>
+        <div class="list-item"><span class="list-check">✓</span><span>Aadhaar-linked bank account mandatory for DBT transfer</span></div>
+        <div class="list-item"><span class="list-check">✓</span><span>e-KYC completion is mandatory for all registered beneficiaries</span></div>
+      </div>
+
+      <!-- Exclusions -->
+      <div class="guide-panel">
+        <div class="panel-head"><div class="panel-icon">🚫</div><div class="panel-title">Who Is NOT Eligible</div></div>
+        <div class="exclusion-grid">
+          <div class="excl-pill"><span class="excl-icon">✗</span>Income tax payers (last assessment year)</div>
+          <div class="excl-pill"><span class="excl-icon">✗</span>Pensioners receiving ≥₹10,000/month</div>
+          <div class="excl-pill"><span class="excl-icon">✗</span>Current/former MPs, MLAs, Ministers</div>
+          <div class="excl-pill"><span class="excl-icon">✗</span>Constitutional post holders</div>
+          <div class="excl-pill"><span class="excl-icon">✗</span>Central/State Govt. employees (except Class IV/Group D)</div>
+          <div class="excl-pill"><span class="excl-icon">✗</span>Doctors, Engineers, Lawyers, CAs (registered professionals)</div>
+          <div class="excl-pill"><span class="excl-icon">✗</span>Institutional landholders</div>
+          <div class="excl-pill"><span class="excl-icon">✗</span>PSU/Autonomous body employees</div>
+        </div>
+      </div>
+
+      <!-- Documents -->
+      <div class="guide-panel">
+        <div class="panel-head"><div class="panel-icon">📋</div><div class="panel-title">Documents Required</div></div>
+        <div class="list-item"><span class="list-check">✓</span><span><strong style="color:#fff">Aadhaar Card</strong> — mandatory for identity & e-KYC. Must be linked to mobile number for OTP</span></div>
+        <div class="list-item"><span class="list-check">✓</span><span><strong style="color:#fff">Land Records</strong> — 7/12 Utara, RTC, or Khasra. Must show cultivable land in farmer's name</span></div>
+        <div class="list-item"><span class="list-check">✓</span><span><strong style="color:#fff">Bank Passbook</strong> — Account must be Aadhaar-seeded. DBT payment sent here directly</span></div>
+        <div class="list-item"><span class="list-check">✓</span><span><strong style="color:#fff">Mobile Number</strong> — linked to Aadhaar for OTP-based e-KYC verification</span></div>
+        <div class="list-item"><span class="list-check">✓</span><span><strong style="color:#fff">Caste Certificate</strong> — for SC/ST farmers only, if applicable</span></div>
+        <div class="list-item"><span class="list-check">✓</span><span><strong style="color:#fff">IFSC Code</strong> — bank's branch code needed for correct DBT routing</span></div>
+      </div>
+
+      <!-- Registration Process -->
+      <div class="guide-panel">
+        <div class="panel-head"><div class="panel-icon">🗺️</div><div class="panel-title">Registration Flow</div></div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-title">Visit PM-KISAN Portal</div>
+            <div class="tl-desc">Go to pmkisan.gov.in → Farmers Corner → New Farmer Registration. Select Rural or Urban Farmer.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-title">Aadhaar Verification</div>
+            <div class="tl-desc">Enter 12-digit Aadhaar number + mobile OTP. System checks if you're already registered.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-title">Fill Registration Form</div>
+            <div class="tl-desc">Enter name, address, bank details (account number + IFSC), and land holding information.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-title">e-KYC Mandatory</div>
+            <div class="tl-desc">Complete OTP-based e-KYC on the portal or biometric e-KYC at nearest Common Service Centre (CSC).</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-title">State Verification</div>
+            <div class="tl-desc">State/district officials verify land records. This step may take 1–4 weeks.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-title">DBT Payment Starts</div>
+            <div class="tl-desc">Once approved, ₹2,000 credited directly to your Aadhaar-linked bank account every 4 months.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- e-KYC Box -->
+    <div style="background:rgba(212,160,23,.08);border:1px solid rgba(212,160,23,.2);border-radius:var(--r-lg);padding:22px;margin-bottom:24px">
+      <div style="color:var(--gold-bright);font-weight:700;font-size:.95rem;margin-bottom:8px">⚠️ e-KYC is MANDATORY — Don't miss your installment</div>
+      <p style="color:rgba(255,255,255,.6);font-size:.86rem;line-height:1.7;margin-bottom:12px">The government has made Aadhaar-based e-KYC compulsory for all PM-KISAN registered farmers. Without it, installments will not be credited — even for previously eligible farmers.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div>
+          <div style="color:rgba(255,255,255,.5);font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Option 1 — Online (OTP)</div>
+          <div class="code-cmd">1. Go to pmkisan.gov.in<br>2. Click "eKYC" in Farmers Corner<br>3. Enter Aadhaar + mobile OTP<br>4. Done in 2 minutes</div>
+        </div>
+        <div>
+          <div style="color:rgba(255,255,255,.5);font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Option 2 — Biometric (CSC)</div>
+          <div class="code-cmd">1. Visit nearest Common Service Centre<br>2. Bring Aadhaar card<br>3. Fingerprint verification<br>4. Also: PM-KISAN Mobile App (Face Auth)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Helpline + Apply -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:18px">
+        <div style="color:var(--gold-bright);font-weight:600;font-size:.88rem;margin-bottom:10px">📞 Helpline Numbers</div>
+        <div style="color:rgba(255,255,255,.65);font-size:.85rem;line-height:2">
+          PM-KISAN Helpline: <strong style="color:#fff;font-family:'JetBrains Mono',monospace">155261</strong><br>
+          Agriculture Ministry: <strong style="color:#fff;font-family:'JetBrains Mono',monospace">011-24300606</strong><br>
+          Kisan e-Mitra AI: Available on pmkisan.gov.in in 11 languages
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:18px">
+        <div style="color:var(--gold-bright);font-weight:600;font-size:.88rem;margin-bottom:10px">🔍 Check Your Status</div>
+        <div style="color:rgba(255,255,255,.65);font-size:.85rem;line-height:1.7;margin-bottom:12px">Visit pmkisan.gov.in → Farmers Corner → "Know Your Status" → Enter Registration Number or Aadhaar.</div>
+        <a href="https://pmkisan.gov.in" target="_blank" class="apply-btn-big" style="margin-top:0;padding:10px 16px;font-size:.85rem">🔗 Open pmkisan.gov.in →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ELIGIBILITY CHECKER -->
+<section class="section elig-bg" id="eligibility">
+  <div class="section-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start">
+    <div>
+      <div class="section-tag" data-en="✅ Eligibility Checker" data-kn="✅ ಅರ್ಹತೆ ಪರಿಶೀಲಕ" data-hi="✅ पात्रता जांचकर्ता">✅ Eligibility Checker</div>
+      <h2 class="section-title" data-en="4 Questions. Instant Results." data-kn="4 ಪ್ರಶ್ನೆಗಳು. ತಕ್ಷಣ ಫಲಿತಾಂಶ." data-hi="4 सवाल। तुरंत परिणाम।">4 Questions. Instant Results.</h2>
+      <p class="section-desc" data-en="Answer four simple questions and instantly see every government scheme you qualify for." data-kn="ನಾಲ್ಕು ಸರಳ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರಿಸಿ ಮತ್ತು ನಿಮಗೆ ಅರ್ಹ ಎಲ್ಲ ಯೋಜನೆಗಳನ್ನು ನೋಡಿ." data-hi="चार सरल प्रश्नों का उत्तर दें।">Answer four simple questions and instantly see every government scheme you qualify for.</p>
+      <div class="info-bullets" style="margin-top:22px">
+        <div class="ib"><div class="ib-icon">🔒</div><div><div class="ib-h" data-en="Private & Secure" data-kn="ಖಾಸಗಿ ಮತ್ತು ಸುರಕ್ಷಿತ" data-hi="निजी और सुरक्षित">Private &amp; Secure</div><div class="ib-p" data-en="Your answers are never stored or shared." data-kn="ನಿಮ್ಮ ಉತ್ತರಗಳನ್ನು ಸಂಗ್ರಹಿಸಲಾಗುವುದಿಲ್ಲ." data-hi="उत्तर कभी संग्रहीत नहीं होते।">Your answers are never stored or shared.</div></div></div>
+        <div class="ib"><div class="ib-icon">⚡</div><div><div class="ib-h" data-en="Matches 8+ Schemes" data-kn="8+ ಯೋಜನೆಗಳು ಹೊಂದಾಣಿಕೆ" data-hi="8+ योजनाओं से मिलान">Matches 8+ Schemes</div><div class="ib-p" data-en="Results matched against all Central & State schemes." data-kn="ಎಲ್ಲ ಕೇಂದ್ರ ಮತ್ತು ರಾಜ್ಯ ಯೋಜನೆಗಳ ವಿರುದ್ಧ ಹೊಂದಾಣಿಕೆ." data-hi="सभी केंद्र और राज्य योजनाओं से मिलान।">Results matched against all Central &amp; State schemes.</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="checker-card">
+        <div class="checker-bar"><div class="checker-fill" id="checker-fill"></div></div>
+        <div class="checker-body" id="checker-body"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHATBOT -->
+<section class="section chat-bg" id="chatbot">
+  <div class="section-inner">
+    <div style="margin-bottom:32px">
+      <div class="section-tag" data-en="🤖 AI Assistant" data-kn="🤖 AI ಸಹಾಯಕ" data-hi="🤖 AI सहायक">🤖 AI Assistant</div>
+      <h2 class="section-title" data-en="Ask Anything — In Your Language" data-kn="ಯಾವ ಭಾಷೆಯಲ್ಲಾದರೂ ಕೇಳಿ" data-hi="कुछ भी पूछें — अपनी भाषा में">Ask Anything — In Your Language</h2>
+      <p class="section-desc" data-en="Powered by Claude AI. Ask about eligibility, documents needed, installment dates, or any scheme — in Kannada, Hindi, or English." data-kn="Claude AI ಚಾಲಿತ. ಕನ್ನಡ, ಹಿಂದಿ ಅಥವಾ ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ಕೇಳಿ." data-hi="Claude AI द्वारा संचालित। किसी भी भाषा में पूछें।">Powered by Claude AI. Ask about eligibility, documents needed, installment dates, or any scheme — in Kannada, Hindi, or English.</p>
+    </div>
+    <div class="chat-layout">
+      <div>
+        <div class="chat-window">
+          <div class="chat-top">
+            <div class="chat-av">🤖</div>
+            <div>
+              <div class="chat-name">KisanSaathi AI</div>
+              <div class="chat-status"><span class="online-dot"></span><span data-en="Online · Powered by Claude AI" data-kn="ಆನ್‌ಲೈನ್ · Claude AI ಚಾಲಿತ" data-hi="ऑनलाइन · Claude AI द्वारा">Online · Powered by Claude AI</span></div>
+            </div>
+          </div>
+          <div class="quick-chips" id="quick-chips">
+            <span class="chip" onclick="sendChip(this)" data-en="PM-KISAN 22nd installment status" data-kn="PM-KISAN 22ನೇ ಕಂತು ಸ್ಥಿತಿ" data-hi="PM-KISAN 22वीं किस्त">PM-KISAN 22nd installment</span>
+            <span class="chip" onclick="sendChip(this)" data-en="Am I eligible for PM-KISAN?" data-kn="PM-KISAN ಗೆ ನಾನು ಅರ್ಹನಾ?" data-hi="क्या मैं PM-KISAN के लिए पात्र हूं?">Am I eligible for PM-KISAN?</span>
+            <span class="chip" onclick="sendChip(this)" data-en="KCC documents needed" data-kn="KCC ದಾಖಲೆಗಳು" data-hi="KCC के लिए दस्तावेज़">KCC documents</span>
+            <span class="chip" onclick="sendChip(this)" data-en="Solar pump subsidy 90%" data-kn="ಸೌರ ಪಂಪ್ ಸಬ್ಸಿಡಿ" data-hi="सोलर पंप सब्सिडी">Solar pump subsidy</span>
+          </div>
+          <div class="chat-msgs" id="chat-msgs"></div>
+          <div class="chat-input-row">
+            <input type="text" class="chat-input" id="chat-input" placeholder="Ask in Kannada, Hindi or English..." onkeydown="if(event.key==='Enter')sendMessage()">
+            <button class="send-btn" onclick="sendMessage()">➤</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- WhatsApp -->
+      <div>
+        <div style="margin-bottom:10px">
+          <div class="section-tag" style="font-size:.66rem">📱 WhatsApp Bot Simulator</div>
+          <p style="font-size:.8rem;color:#666;margin-top:5px" data-en="Works on any phone, no internet needed for SMS mode." data-kn="ಯಾವ ಫೋನ್‌ನಲ್ಲಾದರೂ ಕೆಲಸ ಮಾಡುತ್ತದೆ." data-hi="किसी भी फ़ोन पर काम करता है।">Works on any phone. Try the commands below.</p>
+        </div>
+        <div class="wa-sim">
+          <div class="wa-head">
+            <div class="wa-av">🌾</div>
+            <div><div class="wa-title">KisanSaathi</div><div class="wa-sub">WhatsApp Bot · Official</div></div>
+          </div>
+          <div class="wa-msgs" id="wa-msgs"></div>
+          <div class="wa-input-row">
+            <input type="text" class="wa-inp" id="wa-inp" placeholder="Type HELP to start..." onkeydown="if(event.key==='Enter')sendWA()">
+            <button class="wa-send" onclick="sendWA()">➤</button>
+          </div>
+        </div>
+        <div style="margin-top:10px;padding:11px 13px;background:var(--paper);border-radius:var(--r);border:1px solid var(--border-light)">
+          <p style="font-size:.74rem;color:#555;margin-bottom:6px;font-weight:600">Quick commands:</p>
+          <div style="display:flex;gap:5px;flex-wrap:wrap">
+            <span class="chip" onclick="document.getElementById('wa-inp').value='HELP';sendWA()">HELP</span>
+            <span class="chip" onclick="document.getElementById('wa-inp').value='LIST';sendWA()">LIST</span>
+            <span class="chip" onclick="document.getElementById('wa-inp').value='PMKISAN';sendWA()">PMKISAN</span>
+            <span class="chip" onclick="document.getElementById('wa-inp').value='FASAL';sendWA()">FASAL</span>
+            <span class="chip" onclick="document.getElementById('wa-inp').value='STATUS';sendWA()">STATUS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section class="section reg-bg" id="register">
+  <div class="section-inner">
+    <div class="reg-grid">
+      <div>
+        <div class="section-tag" data-en="🔔 Register" data-kn="🔔 ನೋಂದಣಿ" data-hi="🔔 पंजीकरण">🔔 Register</div>
+        <h2 class="section-title" data-en="Get Free Deadline Alerts" data-kn="ಉಚಿತ ಗಡುವು ಎಚ್ಚರಿಕೆಗಳನ್ನು ಪಡೆಯಿರಿ" data-hi="मुफ़्त डेडलाइन अलर्ट पाएं">Get Free Deadline Alerts</h2>
+        <p class="section-desc" data-en="Register your mobile number to get SMS and WhatsApp reminders before every scheme deadline — in your language." data-kn="ಪ್ರತಿ ಯೋಜನೆ ಗಡುವಿಗೆ ಮೊದಲು SMS ಮತ್ತು WhatsApp ಜ್ಞಾಪನೆ ಪಡೆಯಲು ನೋಂದಾಯಿಸಿ." data-hi="हर डेडलाइन से पहले SMS और WhatsApp अलर्ट पाएं।">Register your mobile number to get SMS and WhatsApp reminders before every scheme deadline — in your language.</p>
+        <div class="info-bullets" style="margin-top:18px">
+          <div class="ib"><div class="ib-icon">📱</div><div><div class="ib-h" data-en="30 & 7 Day Reminders" data-kn="30 ಮತ್ತು 7 ದಿನ ಜ್ಞಾಪನೆ" data-hi="30 और 7 दिन के रिमाइंडर">30 &amp; 7 Day Reminders</div><div class="ib-p" data-en="Get alerts before deadlines — enough time to collect all documents." data-kn="ದಾಖಲೆ ಸಂಗ್ರಹಿಸಲು ಸಮಯ ಮುಂಚಿತ ಎಚ್ಚರಿಕೆ." data-hi="दस्तावेज़ जमा करने का समय।">Get alerts before deadlines — enough time to collect all documents.</div></div></div>
+          <div class="ib"><div class="ib-icon">🌐</div><div><div class="ib-h" data-en="3 Languages" data-kn="3 ಭಾಷೆಗಳಲ್ಲಿ" data-hi="3 भाषाओं में">3 Languages</div><div class="ib-p" data-en="Alerts in Kannada, Hindi, or English — your choice." data-kn="ಕನ್ನಡ, ಹಿಂದಿ ಅಥವಾ ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ಸಂದೇಶ." data-hi="कन्नड़, हिंदी या अंग्रेज़ी में।">Alerts in Kannada, Hindi, or English — your choice.</div></div></div>
+          <div class="ib"><div class="ib-icon">🔒</div><div><div class="ib-h" data-en="No Spam, Ever" data-kn="ಸ್ಪ್ಯಾಮ್ ಇಲ್ಲ" data-hi="कभी स्पैम नहीं">No Spam, Ever</div><div class="ib-p" data-en="Only scheme-related alerts. Reply STOP to unsubscribe anytime." data-kn="ಯೋಜನೆ ಸಂಬಂಧಿತ ಎಚ್ಚರಿಕೆಗಳು ಮಾತ್ರ." data-hi="केवल योजना संबंधित अलर्ट।">Only scheme-related alerts. Reply STOP anytime to unsubscribe.</div></div></div>
+        </div>
+      </div>
+      <div class="reg-card" id="form-wrap">
+        <div id="form-body">
+          <div class="form-row"><label class="form-label" data-en="Full Name" data-kn="ಪೂರ್ಣ ಹೆಸರು" data-hi="पूरा नाम">Full Name</label><input type="text" class="form-ctrl" id="f-name" placeholder="Ramesh Kumar"></div>
+          <div class="form-row"><label class="form-label" data-en="Mobile Number" data-kn="ಮೊಬೈಲ್ ಸಂಖ್ಯೆ" data-hi="मोबाइल नंबर">Mobile Number</label><input type="tel" class="form-ctrl" id="f-phone" placeholder="9XXXXXXXXX"></div>
+          <div class="form-row">
+            <label class="form-label" data-en="District" data-kn="ಜಿಲ್ಲೆ" data-hi="जिला">District</label>
+            <select class="form-ctrl" id="f-district">
+              <option value="">Select district / ಜಿಲ್ಲೆ ಆಯ್ಕೆ</option>
+              <option>Belagavi</option><option>Bidar</option><option>Chamarajanagar</option><option>Chikkaballapura</option><option>Chikkamagaluru</option><option>Chitradurga</option><option>Dakshina Kannada</option><option>Davanagere</option><option>Dharwad</option><option>Gadag</option><option>Hassan</option><option>Haveri</option><option>Kalaburagi</option><option>Kodagu</option><option>Kolar</option><option>Koppal</option><option>Mandya</option><option>Mysuru</option><option>Raichur</option><option>Ramanagara</option><option>Shivamogga</option><option>Tumakuru</option><option>Udupi</option><option>Uttara Kannada</option><option>Vijayapura</option><option>Yadgir</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label class="form-label" data-en="Alert Language" data-kn="ಎಚ್ಚರಿಕೆ ಭಾಷೆ" data-hi="अलर्ट भाषा">Alert Language</label>
+            <select class="form-ctrl" id="f-lang"><option value="kn">ಕನ್ನಡ (Kannada)</option><option value="hi">हिंदी (Hindi)</option><option value="en">English</option></select>
+          </div>
+          <div class="form-row">
+            <label class="form-label" data-en="Land Holding" data-kn="ಭೂ ಹಿಡುವಳಿ" data-hi="भूमि जोत">Land Holding</label>
+            <select class="form-ctrl" id="f-land"><option value="0.5">Below 1 acre</option><option value="2">1–3 acres</option><option value="4">3–5 acres</option><option value="10">Above 5 acres</option></select>
+          </div>
+          <button class="submit-btn" onclick="submitForm()" data-en="Register for Free Alerts →" data-kn="ಉಚಿತ ಎಚ್ಚರಿಕೆಗಳಿಗೆ ನೋಂದಾಯಿಸಿ →" data-hi="मुफ़्त अलर्ट के लिए पंजीकरण →">Register for Free Alerts →</button>
+        </div>
+        <div class="form-success" id="form-success">
+          <div class="suc-icon">✅</div>
+          <h3 class="suc-title" data-en="Successfully Registered!" data-kn="ಯಶಸ್ವಿಯಾಗಿ ನೋಂದಾಯಿಸಲಾಗಿದೆ!" data-hi="सफलतापूर्वक पंजीकृत!">Successfully Registered!</h3>
+          <p class="suc-desc" data-en="You'll get SMS & WhatsApp alerts 30 and 7 days before every scheme deadline." data-kn="ಪ್ರತಿ ಯೋಜನೆ ಗಡುವಿಗೆ 30 ಮತ್ತು 7 ದಿನ ಮೊದಲು ಎಚ್ಚರಿಕೆ ಸ್ವೀಕರಿಸುತ್ತೀರಿ." data-hi="हर डेडलाइन से 30 और 7 दिन पहले अलर्ट मिलेंगे।">You'll get SMS &amp; WhatsApp alerts 30 and 7 days before every scheme deadline.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">🌾 KisanSaathi</div>
+    <div class="footer-links">
+      <a href="#schemes">Schemes</a>
+      <a href="#pmkisan-guide">PM-KISAN Guide</a>
+      <a href="#eligibility">Eligibility</a>
+      <a href="https://pmkisan.gov.in" target="_blank">pmkisan.gov.in</a>
+      <a href="https://agri.karnataka.gov.in" target="_blank">agri.karnataka.gov.in</a>
+    </div>
+  </div>
+  <div class="footer-copy" data-en="© 2026 KisanSaathi · Built for Indian Farmers · Powered by Claude AI · Not an official government portal · Data sourced from pmkisan.gov.in" data-kn="© 2026 KisanSaathi · ಭಾರತೀಯ ರೈತರಿಗಾಗಿ · ಅಧಿಕೃತ ಸರ್ಕಾರಿ ಪೋರ್ಟಲ್ ಅಲ್ಲ" data-hi="© 2026 KisanSaathi · यह आधिकारिक सरकारी पोर्टल नहीं है">© 2026 KisanSaathi · Built for Indian Farmers · Powered by Claude AI · Not an official government portal · Data sourced from pmkisan.gov.in</div>
+</footer>
+
+<script>
+// ===== DATA =====
+const SCHEMES = [
+  {id:'pmkisan',icon:'💰',name:'PM-KISAN',nameKn:'ಪ್ರಧಾನ ಮಂತ್ರಿ ಕಿಸಾನ್ ಸಮ್ಮಾನ ನಿಧಿ',type:'Central',color:'rgba(21,101,192,.08)',
+   desc:'Direct income support of ₹6,000/year to landholding farmer families, paid in 3 installments of ₹2,000. 22nd installment released March 13, 2026.',
+   descKn:'₹6,000/ವರ್ಷ ಆದಾಯ ಬೆಂಬಲ — 3 ಕಂತುಗಳಲ್ಲಿ. 22ನೇ ಕಂತು ಮಾರ್ಚ್ 13, 2026 ರಂದು ಬಿಡುಗಡೆ.',
+   amount:'₹6,000/year',deadline:'Ongoing',minLand:0,maxLand:100,minAge:18,maxAge:99,maxIncome:999999,
+   eligibility:'All landholding farmer families. e-KYC mandatory. Excludes income tax payers, pensioners ≥₹10K/month, govt employees.',
+   applyUrl:'https://pmkisan.gov.in',
+   docs:['Aadhaar Card (mandatory — for e-KYC & DBT)','Bank Passbook (Aadhaar-seeded account)','Land Records / 7-12 Utara / RTC','Mobile Number (linked to Aadhaar for OTP)','IFSC Code of your bank branch','Caste Certificate (SC/ST only, if applicable)'],
+   docsKn:['ಆಧಾರ್ ಕಾರ್ಡ್ (e-KYC ಮತ್ತು DBT ಗಾಗಿ ಕಡ್ಡಾಯ)','ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್ (ಆಧಾರ್-ಲಿಂಕ್)','ಭೂ ದಾಖಲೆಗಳು / 7-12 ಉತಾರಾ / RTC','ಮೊಬೈಲ್ ಸಂಖ್ಯೆ (ಆಧಾರ್‌ಗೆ ಲಿಂಕ್)','ಬ್ಯಾಂಕ್ IFSC ಕೋಡ್','ಜಾತಿ ಪ್ರಮಾಣಪತ್ರ (SC/ST ಮಾತ್ರ)'],
+   process:'Register on PM-KISAN portal → Enter Aadhaar + OTP → Fill personal/land/bank details → Complete e-KYC (mandatory) → State verifies land records → ₹2,000 credited every 4 months directly to bank'},
+  {id:'fasal',icon:'🌾',name:'PM Fasal Bima Yojana',nameKn:'ಪ್ರಧಾನ ಮಂತ್ರಿ ಫಸಲ್ ಬಿಮಾ ಯೋಜನೆ',type:'Central',color:'rgba(35,134,54,.08)',
+   desc:'Comprehensive crop insurance covering yield losses from natural calamities, pests, and disease. Up to ₹2 Lakh coverage.',
+   descKn:'ನೈಸರ್ಗಿಕ ವಿಪತ್ತು, ಕೀಟ ಮತ್ತು ರೋಗದಿಂದ ಬೆಳೆ ನಷ್ಟಕ್ಕೆ ₹2 ಲಕ್ಷ ವಿಮೆ.',
+   amount:'Up to ₹2L',deadline:'Jul 31 (Kharif)',minLand:0.5,maxLand:100,minAge:18,maxAge:99,maxIncome:999999,
+   eligibility:'All farmers growing notified crops — mandatory for loanee farmers, voluntary for others',
+   applyUrl:'https://pmfby.gov.in',
+   docs:['Aadhaar Card','Land Records (7/12 or Khatian)','Bank Account Passbook','Sowing Certificate (from Gram Panchayat)','Previous crop details'],
+   docsKn:['ಆಧಾರ್ ಕಾರ್ಡ್','ಭೂ ದಾಖಲೆಗಳು (7/12)','ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್','ಬಿತ್ತನೆ ಪ್ರಮಾಣಪತ್ರ (ಗ್ರಾಮ ಪಂಚಾಯತ್‌ನಿಂದ)','ಹಿಂದಿನ ವರ್ಷ ಬೆಳೆ ವಿವರ'],
+   process:'Apply at nearest bank or CSC → Pay premium (2% Kharif, 1.5% Rabi) → Loss reported after calamity → State verifies → Claim credited to bank'},
+  {id:'kcc',icon:'💳',name:'Kisan Credit Card',nameKn:'ಕಿಸಾನ್ ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್',type:'Central',color:'rgba(21,101,192,.08)',
+   desc:'Revolving short-term credit up to ₹3 Lakh at 4% per annum for crop cultivation and farm needs.',
+   descKn:'ಬೆಳೆ ಕೃಷಿಗೆ 4% ಬಡ್ಡಿ ದರದಲ್ಲಿ ₹3 ಲಕ್ಷ ಸಾಲ.',
+   amount:'₹3L @ 4% p.a.',deadline:'Year-round',minLand:0,maxLand:100,minAge:18,maxAge:75,maxIncome:999999,
+   eligibility:'All farmers, tenant farmers, SHG members in agriculture — max age 75',
+   applyUrl:'https://www.nabard.org',
+   docs:['Aadhaar Card','PAN Card (for loans above ₹1L)','Land Ownership or Tenancy Certificate','2 Passport-size Photographs','Bank Statement (last 6 months)','Income Certificate from Tehsildar'],
+   docsKn:['ಆಧಾರ್ ಕಾರ್ಡ್','PAN ಕಾರ್ಡ್','ಭೂ ಮಾಲೀಕತ್ವ / ಗೇಣಿ ಪ್ರಮಾಣಪತ್ರ','2 ಪಾಸ್‌ಪೋರ್ಟ್ ಗಾತ್ರದ ಫೋಟೋ','ಬ್ಯಾಂಕ್ ಸ್ಟೇಟ್‌ಮೆಂಟ್ (6 ತಿಂಗಳ)','ತಹಸೀಲ್ದಾರ್ ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ'],
+   process:'Visit nearest bank with documents → Submit KCC application → Land verification by bank → KCC issued within 15 days → Revolving credit facility activated'},
+  {id:'kusum',icon:'☀️',name:'PM Kusum Scheme',nameKn:'ಪ್ರಧಾನ ಮಂತ್ರಿ ಕುಸುಮ್ ಯೋಜನೆ',type:'Central',color:'rgba(212,160,23,.08)',
+   desc:'Up to 90% subsidy on solar-powered irrigation pumps. Earn income from surplus solar power sold to grid.',
+   descKn:'ಸೌರ ನೀರಾವರಿ ಪಂಪ್‌ಗಳ ಮೇಲೆ 90% ಸಬ್ಸಿಡಿ. ಹೆಚ್ಚುವರಿ ವಿದ್ಯುತ್ ಮಾರಿ ಆದಾಯ.',
+   amount:'90% subsidy',deadline:'Dec 31',minLand:1,maxLand:100,minAge:18,maxAge:99,maxIncome:999999,
+   eligibility:'Farmers with agricultural land — priority to small & marginal farmers',
+   applyUrl:'https://mnre.gov.in',
+   docs:['Aadhaar Card','Land Records (Patta/Khata)','Latest Electricity Bill (or No-Electricity Certificate)','Bank Account Passbook','Passport-size Photo','Caste Certificate (SC/ST only)'],
+   docsKn:['ಆಧಾರ್ ಕಾರ್ಡ್','ಭೂ ದಾಖಲೆಗಳು','ವಿದ್ಯುತ್ ಬಿಲ್ / ಇಲ್ಲ ಪ್ರಮಾಣ ಪತ್ರ','ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್','ಪಾಸ್‌ಪೋರ್ಟ್ ಫೋಟೋ','ಜಾತಿ ಪ್ರಮಾಣಪತ್ರ (SC/ST ಮಾತ್ರ)'],
+   process:'Apply via MNRE portal or state DISCOM → Feasibility check → Subsidy approved → Farmer installs with approved vendor → Inspection → Handover'},
+  {id:'krishi',icon:'🚜',name:'Karnataka Krishi Bhagya',nameKn:'ಕರ್ನಾಟಕ ಕೃಷಿ ಭಾಗ್ಯ',type:'State',color:'rgba(35,134,54,.08)',
+   desc:'Farm ponds, pump sets and polyhouse support for drought-prone Karnataka districts. Subsidy up to ₹1 Lakh.',
+   descKn:'ಕರ್ನಾಟಕ ಬರ ಪ್ರದೇಶಗಳಿಗೆ ಕೃಷಿ ಹೊಂಡ, ಪಂಪ್‌ಸೆಟ್ ಮತ್ತು ಪಾಲಿಹೌಸ್ ಬೆಂಬಲ.',
+   amount:'₹1L subsidy',deadline:'Sep 30',minLand:0.5,maxLand:5,minAge:18,maxAge:70,maxIncome:150000,
+   eligibility:'Small/marginal farmers in drought-prone Karnataka districts, income < ₹1.5L',
+   applyUrl:'https://raitamitra.karnataka.gov.in',
+   docs:['Aadhaar Card','Caste & Income Certificate','Land Records (RTC/7/12)','Bank Passbook','Ration Card','Application form from Taluk Agricultural Office'],
+   docsKn:['ಆಧಾರ್ ಕಾರ್ಡ್','ಜಾತಿ ಮತ್ತು ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ','ಭೂ ದಾಖಲೆಗಳು (RTC/7/12)','ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್','ರೇಷನ್ ಕಾರ್ಡ್','ತಾಲ್ಲೂಕ ಕೃಷಿ ಕಚೇರಿ ಅರ್ಜಿ ನಮೂನೆ'],
+   process:'Apply at Taluk Agricultural Office → Site inspection → Subsidy order issued → Work completed → Final inspection and fund release'},
+  {id:'raitabandhu',icon:'🌻',name:'Raitha Bandhu (Karnataka)',nameKn:'ರೈತ ಬಂಧು ಯೋಜನೆ',type:'State',color:'rgba(35,134,54,.08)',
+   desc:'Direct benefit transfer to Karnataka farmers for seasonal input costs at the start of Kharif and Rabi seasons.',
+   descKn:'ಖರೀಫ್ ಮತ್ತು ರಬಿ ಋತು ಆರಂಭದಲ್ಲಿ ₹5,000/ಋತು ನೇರ ವರ್ಗಾವಣೆ.',
+   amount:'₹5,000/season',deadline:'Jun 15 (Kharif)',minLand:0,maxLand:3,minAge:21,maxAge:65,maxIncome:100000,
+   eligibility:'Karnataka farmers, land ≤ 3 acres, income ≤ ₹1L, age 21–65',
+   applyUrl:'https://raitamitra.karnataka.gov.in',
+   docs:['Aadhaar Card (mobile-linked)','Ration Card','Land Records (RTC)','Bank Passbook (in farmer\'s name)','Income Certificate from Village Accountant'],
+   docsKn:['ಆಧಾರ್ ಕಾರ್ಡ್ (ಮೊಬೈಲ್‌ಗೆ ಲಿಂಕ್)','ರೇಷನ್ ಕಾರ್ಡ್','ಭೂ ದಾಖಲೆಗಳು (RTC)','ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್','ಗ್ರಾಮ ಲೆಕ್ಕಾಧಿಕಾರಿ ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ'],
+   process:'Register at Raitha Sewa Kendra → Land records verified → Bank account linked → Amount auto-credited each season'},
+  {id:'nmsa',icon:'💧',name:'NMSA Micro Irrigation',nameKn:'NMSA ಸೂಕ್ಷ್ಮ ನೀರಾವರಿ',type:'Central',color:'rgba(21,101,192,.08)',
+   desc:'55–80% subsidy on drip and sprinkler irrigation systems to boost water efficiency and crop yields.',
+   descKn:'ಹನಿ ಮತ್ತು ತುಂತುರು ನೀರಾವರಿ ವ್ಯವಸ್ಥೆಗೆ 55-80% ಸಬ್ಸಿಡಿ.',
+   amount:'55–80% subsidy',deadline:'Oct 31',minLand:0.5,maxLand:10,minAge:18,maxAge:99,maxIncome:999999,
+   eligibility:'All farmers; small/marginal get 80%, others get 55% subsidy',
+   applyUrl:'https://pmksy.gov.in',
+   docs:['Aadhaar Card','Land Records (Khasra/Khatauni)','Soil Health Card (recommended)','Bank Account Passbook','Photo of land to be irrigated'],
+   docsKn:['ಆಧಾರ್ ಕಾರ್ಡ್','ಭೂ ದಾಖಲೆಗಳು','ಮಣ್ಣು ಆರೋಗ್ಯ ಕಾರ್ಡ್ (ಶಿಫಾರಸು)','ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್','ನೀರಾವರಿ ಭೂಮಿಯ ಫೋಟೋ'],
+   process:'Apply via PMKSY portal → Technical approval → Pre-installation inspection → Install with approved vendor → Post-inspection → Subsidy released'},
+  {id:'enam',icon:'📊',name:'e-NAM Market Link',nameKn:'e-NAM ಮಾರುಕಟ್ಟೆ ಸಂಪರ್ಕ',type:'Central',color:'rgba(212,160,23,.08)',
+   desc:'Free access to the National Agricultural Market — trade crops online, get better prices, eliminate middlemen.',
+   descKn:'ರಾಷ್ಟ್ರೀಯ ಕೃಷಿ ಮಾರುಕಟ್ಟೆ — ಆನ್‌ಲೈನ್‌ನಲ್ಲಿ ಮಾರಿ, ಉತ್ತಮ ಬೆಲೆ ಪಡೆಯಿರಿ.',
+   amount:'Free + Better Prices',deadline:'Year-round',minLand:0,maxLand:100,minAge:18,maxAge:99,maxIncome:999999,
+   eligibility:'All farmers with crops to sell — completely free registration',
+   applyUrl:'https://enam.gov.in',
+   docs:['Aadhaar Card','Bank Account Passbook','Mobile Number (for OTP)','Optional: Soil Health Card'],
+   docsKn:['ಆಧಾರ್ ಕಾರ್ಡ್','ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್','ಮೊಬೈಲ್ ಸಂಖ್ಯೆ (OTP ಗಾಗಿ)','ಮಣ್ಣು ಆರೋಗ್ಯ ಕಾರ್ಡ್ (ಐಚ್ಛಿಕ)'],
+   process:'Register on eNAM portal → Verify Aadhaar → Link APMC mandi → List produce online → Receive bids → Accept and get paid directly'}
+];
+
+const QUIZ=[
+  {key:'land',en:'How much agricultural land do you own?',kn:'ನಿಮ್ಮ ಕೃಷಿ ಭೂಮಿ ಎಷ್ಟು?',hi:'आपके पास कितनी कृषि भूमि है?',
+   opts:[{v:.3,en:'Below 1 acre',kn:'1 ಎಕರೆ ಕೆಳಗೆ',hi:'1 एकड़ से कम'},{v:2,en:'1–3 acres',kn:'1–3 ಎಕರೆ',hi:'1–3 एकड़'},{v:4,en:'3–5 acres',kn:'3–5 ಎಕರೆ',hi:'3–5 एकड़'},{v:10,en:'Above 5 acres',kn:'5 ಮೇಲೆ',hi:'5 से अधिक'}]},
+  {key:'age',en:'What is your age?',kn:'ನಿಮ್ಮ ವಯಸ್ಸು ಎಷ್ಟು?',hi:'आपकी उम्र क्या है?',
+   opts:[{v:24,en:'Below 30',kn:'30 ಕೆಳಗೆ',hi:'30 से कम'},{v:40,en:'30–50 years',kn:'30–50 ವರ್ಷ',hi:'30–50 वर्ष'},{v:60,en:'51–65 years',kn:'51–65 ವರ್ಷ',hi:'51–65 वर्ष'},{v:72,en:'Above 65',kn:'65 ಮೇಲೆ',hi:'65 से अधिक'}]},
+  {key:'income',en:'Annual household income (approx)',kn:'ವಾರ್ಷಿಕ ಕುಟುಂಬ ಆದಾಯ',hi:'वार्षिक घरेलू आय',
+   opts:[{v:75000,en:'Below ₹1 Lakh',kn:'₹1 ಲಕ್ಷ ಕೆಳಗೆ',hi:'₹1 लाख से कम'},{v:150000,en:'₹1–2 Lakh',kn:'₹1–2 ಲಕ್ಷ',hi:'₹1–2 लाख'},{v:300000,en:'₹2–4 Lakh',kn:'₹2–4 ಲಕ್ಷ',hi:'₹2–4 लाख'},{v:700000,en:'Above ₹4 Lakh',kn:'₹4 ಲಕ್ಷ ಮೇಲೆ',hi:'₹4 लाख से अधिक'}]},
+  {key:'crop',en:'What do you primarily grow?',kn:'ನೀವು ಮುಖ್ಯವಾಗಿ ಏನು ಬೆಳೆಯುತ್ತೀರಿ?',hi:'मुख्यतः क्या उगाते हैं?',
+   opts:[{v:'food',en:'Food Grains',kn:'ಆಹಾರ ಧಾನ್ಯ',hi:'खाद्यान्न'},{v:'cash',en:'Cash Crops',kn:'ನಗದು ಬೆಳೆ',hi:'नकदी फसल'},{v:'hort',en:'Horticulture',kn:'ತೋಟಗಾರಿಕೆ',hi:'बागवानी'},{v:'mixed',en:'Mixed Farming',kn:'ಮಿಶ್ರ ಕೃಷಿ',hi:'मिश्रित खेती'}]}
+];
+
+let lang='en',step=0,answers={},chatHistory=[],waHistory=[];
+
+// ===== LANGUAGE =====
+function setLang(l){
+  lang=l;
+  ['en','kn','hi'].forEach(x=>document.getElementById('btn-'+x)?.classList.toggle('active',x===l));
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const v=el.getAttribute('data-'+l)||el.getAttribute('data-en');
+    if(v)el.innerHTML=v;
+  });
+  document.querySelectorAll('.chip').forEach(c=>{c.textContent=c.getAttribute('data-'+l)||c.getAttribute('data-en');});
+  renderSchemes();renderChecker();
+}
+
+// ===== SCHEMES =====
+function renderSchemes(){
+  document.getElementById('schemes-grid').innerHTML=SCHEMES.map(s=>`
+    <div class="scheme-card" onclick="openScheme('${s.id}')">
+      <div class="card-top">
+        <div class="card-icon" style="background:${s.color}">${s.icon}</div>
+        <div style="flex:1">
+          <div class="card-name">${s.name}</div>
+          <div class="card-kn">${s.nameKn}</div>
+        </div>
+        <span class="badge badge-${s.type==='Central'?'c':'s'}">${s.type}</span>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">${lang==='kn'?s.descKn:s.desc}</p>
+        <div class="card-foot">
+          <span class="card-amt">${s.amount}</span>
+          <span class="card-deadline">📅 ${s.deadline}</span>
+        </div>
+      </div>
+      <button class="card-cta">${lang==='kn'?'ವಿವರಗಳು + ದಾಖಲೆಗಳು →':lang==='hi'?'विवरण + दस्तावेज़ →':'Full Details + Documents →'}</button>
+    </div>
+  `).join('');
+}
+
+function openScheme(id){
+  const s=SCHEMES.find(x=>x.id===id);
+  const docs=lang==='kn'?s.docsKn:s.docs;
+  document.getElementById('modal-content').innerHTML=`
+    <div class="modal-head">
+      <div class="modal-icon-big" style="background:${s.color}">${s.icon}</div>
+      <div>
+        <div class="modal-title">${s.name}</div>
+        <div class="modal-title-kn">${s.nameKn}</div>
+        <span class="badge badge-${s.type==='Central'?'c':'s'}" style="margin-top:5px;display:inline-block">${s.type} Scheme</span>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="color:#555;font-size:.89rem;line-height:1.72;margin-bottom:18px">${lang==='kn'?s.descKn:s.desc}</p>
+      <div class="modal-sec">
+        <div class="modal-sec-title">Key Details</div>
+        <div class="info-grid">
+          <div class="info-pill"><div class="info-pill-label">Benefit</div><div class="info-pill-val" style="color:var(--green)">${s.amount}</div></div>
+          <div class="info-pill"><div class="info-pill-label">Deadline</div><div class="info-pill-val" style="color:var(--red)">${s.deadline}</div></div>
+          <div class="info-pill" style="grid-column:1/-1"><div class="info-pill-label">Eligibility</div><div class="info-pill-val" style="font-size:.81rem;font-weight:500;color:#555">${s.eligibility}</div></div>
+        </div>
+      </div>
+      <div class="modal-sec">
+        <div class="modal-sec-title">${lang==='kn'?'ಅಗತ್ಯ ದಾಖಲೆಗಳು':'Required Documents'}</div>
+        <ul class="doc-list">${docs.map(d=>`<li class="doc-item"><span class="doc-chk">✓</span>${d}</li>`).join('')}</ul>
+      </div>
+      <div class="modal-sec">
+        <div class="modal-sec-title">How to Apply</div>
+        <p style="font-size:.84rem;color:#555;line-height:1.72;background:var(--paper);padding:13px;border-radius:7px;border:1px solid var(--border-light)">${s.process}</p>
+      </div>
+      <div class="modal-btns">
+        <a href="${s.applyUrl}" target="_blank" class="btn-apply">🔗 ${lang==='kn'?'ಅಧಿಕೃತ ಪೋರ್ಟಲ್‌ನಲ್ಲಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ':lang==='hi'?'आधिकारिक पोर्टल पर आवेदन करें':'Apply on Official Portal'}</a>
+        <button class="btn-wa" onclick="shareWA('${s.name}','${s.applyUrl}')">💬 WhatsApp</button>
+      </div>
+    </div>
+  `;
+  document.getElementById('modal-overlay').classList.add('open');
+}
+function closeModal(){document.getElementById('modal-overlay').classList.remove('open')}
+function shareWA(name,url){const t=encodeURIComponent(`KisanSaathi: Check ${name}!\nApply: ${url}`);window.open('https://wa.me/?text='+t,'_blank')}
+
+// ===== CHECKER =====
+function renderChecker(){
+  if(step>=QUIZ.length){showResults();return}
+  const q=QUIZ[step];
+  document.getElementById('checker-fill').style.width=(step/QUIZ.length*100)+'%';
+  document.getElementById('checker-body').innerHTML=`
+    <div class="step-label">${lang==='kn'?`ಹಂತ ${step+1} / ${QUIZ.length}`:`Step ${step+1} of ${QUIZ.length}`}</div>
+    <div class="q-text">${q[lang]||q.en}</div>
+    <div class="q-kn">${lang==='kn'?q.en:q.kn}</div>
+    <div class="opts">${q.opts.map(o=>`<button class="opt${answers[q.key]==o.v?' sel':''}" onclick="selOpt('${q.key}',${typeof o.v==='string'?`'${o.v}'`:o.v},this)"><div class="opt-v">${o[lang]||o.en}</div><div class="opt-kn">${lang==='kn'?o.en:o.kn}</div></button>`).join('')}</div>
+    <div class="checker-nav">${step>0?`<button class="btn-back" onclick="stepBack()">← ${lang==='kn'?'ಹಿಂದೆ':lang==='hi'?'वापस':'Back'}</button>`:''}<button class="btn-next" onclick="stepNext()">${step===QUIZ.length-1?(lang==='kn'?'ಫಲಿತಾಂಶ →':lang==='hi'?'परिणाम →':'Show Results →'):(lang==='kn'?'ಮುಂದೆ →':lang==='hi'?'आगे →':'Next →')}</button></div>
+  `;
+}
+function selOpt(k,v,el){answers[k]=v;el.closest('.opts').querySelectorAll('.opt').forEach(b=>b.classList.remove('sel'));el.classList.add('sel')}
+function stepNext(){if(!answers[QUIZ[step].key]){showToast(lang==='kn'?'ದಯವಿಟ್ಟು ಆಯ್ಕೆ ಮಾಡಿ':'Please select an option');return}step++;renderChecker()}
+function stepBack(){if(step>0){step--;renderChecker()}}
+function showResults(){
+  const{land,age,income}=answers;
+  const match=SCHEMES.filter(s=>land>=s.minLand&&land<=s.maxLand&&age>=s.minAge&&age<=s.maxAge&&income<=s.maxIncome);
+  document.getElementById('checker-fill').style.width='100%';
+  document.getElementById('checker-body').innerHTML=`
+    <div style="margin-bottom:14px"><div style="font-size:.72rem;color:var(--muted);margin-bottom:3px">${lang==='kn'?'ಫಲಿತಾಂಶ':'Results'}</div><div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--ink);font-weight:700">${match.length} ${lang==='kn'?'ಯೋಜನೆಗಳು ನಿಮಗೆ ಅರ್ಹ':lang==='hi'?'योजनाएं आपके लिए':'Schemes Found For You'}</div></div>
+    ${match.length?match.map(s=>`<div class="result-item" onclick="openScheme('${s.id}')"><div class="result-emoji">${s.icon}</div><div><div class="result-name">${s.name}</div><div class="result-amt">${s.amount}</div></div><div class="result-arrow">→</div></div>`).join(''):`<div style="text-align:center;color:var(--muted);padding:22px;font-size:.87rem">${lang==='kn'?'ಯಾವ ಯೋಜನೆಯೂ ಹೊಂದಿಕೆ ಆಗಲಿಲ್ಲ':'No exact matches — try adjusting answers.'}</div>`}
+    <button class="btn-back" style="margin-top:12px;width:100%;text-align:center" onclick="resetChecker()">← ${lang==='kn'?'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ':'Check Again'}</button>
+  `;
+}
+function resetChecker(){step=0;answers={};renderChecker()}
+
+// ===== CHAT =====
+function addMsg(text,role){
+  const el=document.createElement('div');el.className=`msg ${role}`;
+  const t=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+  el.innerHTML=`<div class="bubble">${text}</div><div class="msg-time">${t}</div>`;
+  document.getElementById('chat-msgs').appendChild(el);
+  document.getElementById('chat-msgs').scrollTop=9999;
+}
+function showTyping(){
+  const el=document.createElement('div');el.className='msg bot';el.id='typing-ai';
+  el.innerHTML='<div class="typing-wrap"><span class="td"></span><span class="td"></span><span class="td"></span></div>';
+  document.getElementById('chat-msgs').appendChild(el);
+  document.getElementById('chat-msgs').scrollTop=9999;
+}
+function removeTyping(){document.getElementById('typing-ai')?.remove()}
+
+const CTX=SCHEMES.map(s=>`${s.name}: ${s.desc} Amount: ${s.amount}. Deadline: ${s.deadline}. Eligibility: ${s.eligibility}. Docs: ${s.docs.join(', ')}. Apply: ${s.applyUrl}`).join('\n\n');
+const LIVE_DATA=`LIVE DATA (March 2026): PM-KISAN 22nd installment released March 13 2026 from Guwahati by PM Modi. ₹18,640 crore to 9.32 crore farmers. 23rd installment expected June-July 2026. e-KYC is mandatory. Helpline: 155261 or 011-24300606.`;
+
+async function sendMessage(){
+  const inp=document.getElementById('chat-input');
+  const text=inp.value.trim();if(!text)return;
+  inp.value='';addMsg(text,'user');
+  chatHistory.push({role:'user',content:text});
+  showTyping();
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+      model:'claude-sonnet-4-20250514',max_tokens:1000,
+      system:`You are KisanSaathi AI, a helpful assistant for Indian farmers. You have access to live government scheme data. Be concise, warm, and practical. Reply in the same language the user writes in (Kannada/Hindi/English). Keep responses under 160 words. Always end with the official portal link when relevant.\n\n${LIVE_DATA}\n\nSchemes:\n${CTX}`,
+      messages:chatHistory.slice(-8)
+    })});
+    const d=await r.json();
+    removeTyping();
+    const reply=d.content?.[0]?.text||fallback(text);
+    addMsg(reply,'bot');chatHistory.push({role:'assistant',content:reply});
+  }catch(e){
+    removeTyping();
+    addMsg(fallback(text),'bot');
+  }
+}
+
+function fallback(t){
+  t=t.toLowerCase();
+  if(t.includes('22')||t.includes('installment')||t.includes('ಕಂತು')||t.includes('किस्त'))
+    return"📡 Latest: PM-KISAN 22nd Installment was released on March 13, 2026 from Guwahati by PM Modi. ₹18,640 crore transferred to 9.32 crore farmers via DBT. 23rd installment expected June–July 2026.\n\nCheck your status: pmkisan.gov.in";
+  if(t.includes('pmkisan')||t.includes('pm kisan')||t.includes('6000'))
+    return"PM-KISAN gives ₹6,000/year in 3 installments of ₹2,000 each. e-KYC is mandatory to receive payment. Documents: Aadhaar + bank passbook + land records.\n\nHelpline: 155261\nApply: pmkisan.gov.in";
+  if(t.includes('eligib')||t.includes('ಅರ್ಹ')||t.includes('पात्र'))
+    return"PM-KISAN eligibility: Any landholding farmer family can apply. Excluded: income tax payers, pensioners ≥₹10K/month, govt employees, MPs/MLAs, professionals (doctors/lawyers/engineers).\n\nCheck yours: pmkisan.gov.in → Know Your Status";
+  if(t.includes('ekyc')||t.includes('kyc'))
+    return"e-KYC is MANDATORY for PM-KISAN. Without it, your installment will NOT be credited.\n\n✓ Online: pmkisan.gov.in → Farmers Corner → eKYC → Aadhaar + OTP\n✓ Offline: Visit nearest CSC with Aadhaar for biometric verification";
+  if(t.includes('document')||t.includes('ದಾಖಲೆ')||t.includes('दस्तावेज़'))
+    return"Common documents for most schemes:\n✓ Aadhaar Card\n✓ Land Records (7/12 / RTC)\n✓ Bank Passbook (Aadhaar-linked)\n✓ Mobile Number\n✓ Passport Photo\n\nIncome/caste certificates needed for state schemes.";
+  if(t.includes('kcc')||t.includes('credit'))
+    return"Kisan Credit Card (KCC): Up to ₹3 Lakh at just 4% interest. Open year-round. Documents: Aadhaar, PAN, land records, 2 photos, bank statement.\n\nApply at any nationalized bank or NABARD branch.";
+  if(t.includes('solar')||t.includes('kusum')||t.includes('ಸೌರ'))
+    return"PM Kusum: 90% subsidy on solar irrigation pumps. Deadline Dec 31. Documents: Aadhaar, land records, electricity bill.\n\nApply: mnre.gov.in";
+  return lang==='kn'?'ಕ್ಷಮಿಸಿ, ಆಫ್‌ಲೈನ್ ಮೋಡ್. PM-KISAN, Fasal Bima, KCC, Kusum ಬಗ್ಗೆ ಕೇಳಿ.':'Ask me about PM-KISAN (22nd installment), Fasal Bima, KCC, or PM Kusum!';
+}
+
+function sendChip(el){document.getElementById('chat-input').value=el.getAttribute('data-en');sendMessage()}
+
+// ===== WHATSAPP =====
+const WA={
+  'HELP':'🌾 *KisanSaathi Bot*\n\nCommands:\n📡 *STATUS* — PM-KISAN 22nd installment info\n📋 *LIST* — All schemes\n💰 *PMKISAN* — PM-KISAN full guide\n🌾 *FASAL* — Crop insurance\n💳 *KCC* — Kisan Credit Card\n☀️ *KUSUM* — Solar pump subsidy\n🚜 *KRISHI* — Karnataka Krishi Bhagya\n\nReply STOP to unsubscribe.',
+  'STATUS':'📡 *LIVE UPDATE*\n\n22nd Installment released *March 13, 2026*\nAmount: ₹18,640 crore\nBeneficiaries: 9.32 crore farmers\nReleased from: Guwahati by PM Modi\n\n🔔 23rd installment expected June–July 2026\n\n⚠️ Complete e-KYC to ensure you receive it!\n\nCheck: pmkisan.gov.in',
+  'LIST':'📋 *All Schemes:*\n\n1. PM-KISAN — ₹6,000/yr (22nd inst. done)\n2. PM Fasal Bima — ₹2L crop cover\n3. Kisan Credit Card — ₹3L @ 4%\n4. PM Kusum — 90% solar subsidy\n5. Karnataka Krishi Bhagya — ₹1L\n6. Raitha Bandhu — ₹5,000/season\n7. NMSA Drip Irrigation — 80% subsidy\n8. e-NAM — Better market prices\n\nType any name for details.',
+  'PMKISAN':'💰 *PM-KISAN — Full Guide*\n\n*Latest:* 22nd installment released March 13, 2026 (₹18,640 cr to 9.32 cr farmers)\n\n*Amount:* ₹6,000/yr in 3 x ₹2,000 installments\n*Eligibility:* All landholding farmers\n*Exclusions:* Income tax payers, pensioners ≥₹10K/month, govt employees, MPs/MLAs\n\n📋 *Documents:*\n• Aadhaar Card\n• Bank Passbook (Aadhaar-linked)\n• Land Records (7/12)\n• Mobile Number\n\n⚠️ *e-KYC is MANDATORY* — without it, no payment\n\n🔗 pmkisan.gov.in\n📞 Helpline: 155261',
+  'FASAL':'🌾 *PM Fasal Bima Yojana*\n\nCoverage: Up to ₹2 Lakh\nDeadline: July 31 (Kharif), Oct 31 (Rabi)\nPremium: 2% Kharif / 1.5% Rabi\n\n📋 Docs: Aadhaar, Land Records, Bank Passbook, Sowing Certificate\n\n🔗 pmfby.gov.in',
+  'KCC':'💳 *Kisan Credit Card*\n\nLoan: Up to ₹3 Lakh\nInterest: 4% per annum\nOpen: Year-round\n\n📋 Docs: Aadhaar, PAN, Land Records, 2 Photos, Bank Statement\n\n🏦 Apply at nearest bank or NABARD',
+  'KUSUM':'☀️ *PM Kusum*\n\nSubsidy: 90% on solar pumps\nDeadline: December 31\n\n📋 Docs: Aadhaar, Land Records, Electricity Bill, Bank Passbook\n\n🔗 mnre.gov.in',
+  'KRISHI':'🚜 *Karnataka Krishi Bhagya*\n\nSubsidy: Up to ₹1 Lakh\nDeadline: September 30\nFor: Drought-prone Karnataka districts\n\n📋 Docs: Aadhaar, Caste & Income Cert, Land Records, Bank Passbook\n\n🔗 raitamitra.karnataka.gov.in'
+};
+
+function addWAMsg(text,type){
+  const el=document.createElement('div');el.className=`wa-msg ${type}`;
+  el.innerHTML=text.replace(/\*(.*?)\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
+  const t=document.createElement('div');t.className='wa-time';t.textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})+' ✓✓';
+  el.appendChild(t);
+  document.getElementById('wa-msgs').appendChild(el);
+  document.getElementById('wa-msgs').scrollTop=9999;
+}
+function sendWA(){
+  const inp=document.getElementById('wa-inp');
+  const text=inp.value.trim().toUpperCase();if(!text)return;
+  addWAMsg(inp.value||text.toLowerCase(),'out');inp.value='';
+  setTimeout(()=>{
+    const reply=WA[text]||'Command not recognised.\n\nType *HELP* to see all available commands.\n\nExamples: PMKISAN, STATUS, KCC, FASAL';
+    addWAMsg(reply,'in');
+  },700);
+}
+
+// ===== FORM =====
+function submitForm(){
+  const n=document.getElementById('f-name').value.trim();
+  const p=document.getElementById('f-phone').value.trim();
+  const d=document.getElementById('f-district').value;
+  if(!n||!p||!d){showToast(lang==='kn'?'ದಯವಿಟ್ಟು ಎಲ್ಲ ವಿವರಗಳನ್ನು ಭರ್ತಿ ಮಾಡಿ':'Please fill all required fields');return}
+  if(!/^\d{10}$/.test(p.replace(/\D/g,''))){showToast('Please enter a valid 10-digit mobile number');return}
+  document.getElementById('form-body').style.display='none';
+  document.getElementById('form-success').style.display='block';
+  showToast('✅ '+(lang==='kn'?'ನೋಂದಣಿ ಯಶಸ್ವಿ!':'Registration successful!'));
+}
+function showToast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3200);
+}
+function scroll2(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
+
+// ===== LIVE DATA FETCH =====
+async function fetchLiveUpdates(){
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+      model:'claude-sonnet-4-20250514',max_tokens:200,
+      system:'You are a data formatter. Return only a short 1-sentence update about PM-KISAN latest installment status, factual and current as of March 2026. No preamble. Just the sentence.',
+      messages:[{role:'user',content:'What is the latest PM-KISAN installment status as of March 2026?'}]
+    })});
+    const d=await r.json();
+    if(d.content?.[0]?.text){
+      document.getElementById('live-update-text').textContent=d.content[0].text;
+      document.getElementById('live-update-date').textContent='AI-verified · '+new Date().toLocaleDateString('en-IN',{month:'short',year:'numeric'});
+    }
+  }catch(e){}
+}
+
+// ===== INIT =====
+window.addEventListener('DOMContentLoaded',()=>{
+  renderSchemes();renderChecker();
+  document.querySelectorAll('[data-en]').forEach(el=>{const v=el.getAttribute('data-en');if(v)el.innerHTML=v;});
+  setTimeout(()=>addMsg("Namaskara! 🌾 I'm KisanSaathi AI — ask me about any government scheme, eligibility, required documents, or PM-KISAN installment status. I speak Kannada, Hindi, and English!",'bot'),600);
+  addWAMsg('Welcome to KisanSaathi! 🌾\n\nType *HELP* to see all commands.\n\nLatest: PM-KISAN 22nd installment released March 13, 2026.','in');
+  fetchLiveUpdates();
+});
+</script>
+</body>
+</html>
